@@ -951,7 +951,7 @@ function renderLettore(){
   } else if (scheda === "cc"){
     const s = DATA.CC[ccArt];
     h = `<div class="qc-scelta art-scelta" style="margin-bottom:16px">${DATA.CC.map((a, i) => `<button data-cc="${i}" aria-pressed="${i === ccArt}">${esc(corto(a.h))}</button>`).join("")}</div>
-      <h2>${esc(DATA.titoloCC)}</h2><h3>${esc(s.h)}</h3>` + s.p.map((p, i) => parHtml(`cc-${ccArt}-${i}`, p)).join("");
+      <h2>${esc(s.titolo || DATA.titoloCC)}</h2><h3>${esc(s.h)}</h3>` + s.p.map((p, i) => parHtml(`cc-${ccArt}-${i}`, p)).join("");
   }
   if (isMat){ $("#mat-wrap").innerHTML = `<div class="mat-in"><h2 style="font-size:24px;margin-bottom:10px">${esc(M.matrice)}</h2>${matrice()}</div>`;
     $$("#mat-wrap [data-lav]").forEach(r => r.onclick = () => { qcN = +r.dataset.lav; scheda = "lav"; schedeHtml(); renderLettore(); }); adattaMat(); }
