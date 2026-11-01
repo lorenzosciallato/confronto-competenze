@@ -350,6 +350,11 @@ mark.syn{background:transparent;color:inherit;border-bottom:3px dashed #3f7cc4}
 .qc-scelta button{min-width:38px;height:32px;border-radius:10px;border:0;background:var(--sunk);font-weight:800;font-size:12.5px;color:var(--soft);font-family:var(--f-titolo)}
 .qc-scelta button[aria-pressed="true"]{background:var(--c);color:#fff}
 .art-scelta button{padding:0 14px;height:36px;font-size:14px}
+.qc-scelta button.abrog{background:#fbe4df;color:#a3412f}
+.qc-scelta button.abrog[aria-pressed="true"]{background:#b9533f;color:#fff}
+.chip.abrog{background:#fdf0ed;color:#a3412f;box-shadow:inset 0 0 0 1.5px #f1c6bc}
+.chip.abrog[aria-pressed="true"]{background:#b9533f;color:#fff;box-shadow:none}
+.abrog-nota{display:inline-block;margin:-4px 0 14px;padding:6px 12px;border-radius:10px;background:#fbe4df;color:#a3412f;font-weight:700;font-size:14px;line-height:1.35}
 .sin-btn{border:0;background:var(--pastel);color:var(--deep);border-radius:99px;height:32px;padding:0 12px;font-weight:700;font-size:13px}
 /* risultati */
 .risultati{position:absolute;inset:0;background:var(--surface);overflow:hidden;z-index:3;padding-block:14px 10px;animation:fade .2s ease;display:flex;flex-direction:column}
@@ -950,8 +955,8 @@ function renderLettore(){
       ${blocco(M.fCCNL + (v.arts.length ? " · " + v.arts.map(corto).join(", ") : ""), v.ccnl_corr, v.ccnl_evid)}</div>`;
   } else if (scheda === "cc"){
     const s = DATA.CC[ccArt];
-    h = `<div class="qc-scelta art-scelta" style="margin-bottom:16px">${DATA.CC.map((a, i) => `<button data-cc="${i}" aria-pressed="${i === ccArt}">${esc(corto(a.h))}</button>`).join("")}</div>
-      <h2>${esc(s.titolo || DATA.titoloCC)}</h2><h3>${esc(s.h)}</h3>` + s.p.map((p, i) => parHtml(`cc-${ccArt}-${i}`, p)).join("");
+    h = `<div class="qc-scelta art-scelta" style="margin-bottom:16px">${DATA.CC.map((a, i) => `<button data-cc="${i}"${a.abrogato ? ` class="abrog"` : ""} aria-pressed="${i === ccArt}">${esc(corto(a.h))}</button>`).join("")}</div>
+      <h2>${esc(DATA.titoloCC)}</h2><h3>${esc(s.h)}</h3>${s.abrogato ? `<p class="abrog-nota">${esc(s.abrogato)}</p>` : ""}` + s.p.map((p, i) => parHtml(`cc-${ccArt}-${i}`, p)).join("");
   }
   if (isMat){ $("#mat-wrap").innerHTML = `<div class="mat-in"><h2 style="font-size:24px;margin-bottom:10px">${esc(M.matrice)}</h2>${matrice()}</div>`;
     $$("#mat-wrap [data-lav]").forEach(r => r.onclick = () => { qcN = +r.dataset.lav; scheda = "lav"; schedeHtml(); renderLettore(); }); adattaMat(); }
@@ -1402,7 +1407,7 @@ function vista(dir){
       ${rigaFonte(isIn)}
       <div class="scelto-box entra" style="--d:2"><span class="lett ${L || ""}">${L || "·"}</span><span class="t"><span>${M.corr}</span><strong>${esc(v || M.seleziona)}</strong></span>
         <button class="modifica" id="b-mod">${ico("penna")}<span>Modifica</span></button></div>
-      ${isIn ? "" : `<div class="arts entra" style="--d:3" id="arts"><span>${M.articolo}:</span>${DATA.CC.map(a => `<button class="chip" data-art="${esc(a.h)}" aria-pressed="${S.c[p.c.n].arts.includes(a.h)}">${esc(corto(a.h))}</button>`).join("")}</div>`}
+      ${isIn ? "" : `<div class="arts entra" style="--d:3" id="arts"><span>${M.articolo}:</span>${DATA.CC.map(a => `<button class="chip${a.abrogato ? " abrog" : ""}" data-art="${esc(a.h)}" aria-pressed="${S.c[p.c.n].arts.includes(a.h)}">${esc(corto(a.h))}</button>`).join("")}</div>`}
       <div class="cresci entra" style="--d:4"><span class="etichetta">${M.evid}</span><textarea data-k="${k}_evid" placeholder="${esc(M.evidPh)}">${esc(S.c[p.c.n][k + "_evid"])}</textarea></div>
     </div>`;
   }
