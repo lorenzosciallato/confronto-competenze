@@ -68,6 +68,11 @@ export default {
 
     if (azione === "entra") return risposta({ ok: true, dati: rec.dati, versione: rec.versione });
 
+    if (azione === "elimina"){
+      await env.DATI.delete(chiave);
+      return risposta({ ok: true });
+    }
+
     if (azione === "salva"){
       const modifiche = Array.isArray(b.modifiche) ? b.modifiche.slice(0, 400) : [];
       if (!modifiche.length) return risposta({ ok: true, dati: rec.dati, versione: rec.versione });

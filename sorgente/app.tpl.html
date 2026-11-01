@@ -118,6 +118,18 @@ textarea.lampo{animation:lampoT 1.3s ease}
 .acc-ico{width:54px;height:54px;border-radius:16px}
 .acc-ico .icon{width:26px;height:26px}
 .modulo-e{display:grid;gap:12px}
+.link-privacy{border:0;background:transparent;color:var(--soft);font-weight:700;font-size:13.5px;display:inline-flex;align-items:center;gap:6px;padding:6px 8px;border-radius:10px;position:relative}
+.link-privacy:hover{color:var(--deep);background:var(--pastel)}
+.link-privacy .icon{width:16px;height:16px}
+.priv{max-width:720px;display:grid;gap:14px;font-size:15.5px;line-height:1.55}
+.priv h3{font-size:17px;margin-top:6px}
+.priv ul{margin:0;padding-left:20px;display:grid;gap:4px}
+.priv .breve{background:var(--pastel);border-radius:18px;padding:14px 16px}
+.priv a{color:var(--deep);font-weight:700}
+.foglio.largo{width:min(780px,100%)}
+.dialogo .scelte-v{display:grid;gap:10px}
+.dialogo small{color:var(--soft);font-size:14px;line-height:1.45}
+.elimina-link{border:0;background:transparent;color:#b42f25;font-weight:700;font-size:14px;padding:6px;justify-self:center}
 .errore{margin:0;padding:10px 14px;border-radius:14px;background:#fbeceb;color:#9b2a20;font-weight:700;font-size:14.5px}
 input.campo:disabled,.chip:disabled{opacity:.6;cursor:not-allowed}
 @media (max-width:900px){.accesso{grid-template-columns:1fr}.acc-card{padding:16px}}
@@ -257,8 +269,14 @@ input.campo:disabled,.chip:disabled{opacity:.6;cursor:not-allowed}
 .ph::after{width:46%;aspect-ratio:1;right:-10%;bottom:-24%;animation-duration:18s;animation-direction:alternate-reverse}
 .ph .icon{width:46px;height:46px;stroke-width:1.5;position:relative}
 .ph.grande{width:min(540px,88vw,60vh);aspect-ratio:16/9;animation:entra .8s var(--morbido) both}
+.ill{position:relative;aspect-ratio:2/1;border-radius:28px;background:color-mix(in srgb,var(--c) 10%,#fff);overflow:hidden;flex:none;max-width:100%}
+.ill img.foto{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:4%}
+.ill.grande{width:min(560px,88vw,64vh);animation:entra .8s var(--morbido) both}
+.ill.media{width:min(340px,70vw,30vh);animation:entra .6s var(--molla) both}
+.ill.media.sx{width:min(300px,60vw,24vh)}
+.fine-ill .ill{position:absolute;inset:0;width:auto}
 .fine-ill{position:relative;width:min(380px,80vw,44vh);aspect-ratio:2/1;margin-bottom:8%;animation:entra .7s var(--molla) both}
-.fine-ill .ph{position:absolute;inset:0}
+
 .fine-ill .timbro{position:absolute;right:-6%;bottom:-24%;width:38%;height:auto;aspect-ratio:1}
 .timbro{width:min(200px,26dvh);height:min(200px,26dvh);flex:none;position:relative;color:var(--deep);animation:timbra .75s cubic-bezier(.2,.9,.3,1.2) .2s both;filter:drop-shadow(0 2px 0 rgba(255,255,255,.6))}
 .timbro::before{content:"";position:absolute;inset:4px;border-radius:50%;background:color-mix(in srgb,var(--surface) 88%,transparent)}
@@ -492,8 +510,13 @@ mark.syn{background:transparent;color:inherit;border-bottom:3px dashed #3f7cc4}
   .riduci span,.solo-pc{display:none}
   .solo-tel{display:block}
   .riduci{width:42px;padding:0;justify-content:center}
-  .due .tile{display:none}
+  .due .tile,.due .ill{display:none}
+  .ill.media{width:min(200px,52vw,18vh)}
+  .d-in{gap:10px}
+  .consegna-t{font-size:14px!important}
   .due .leg small{display:none}
+  .due .leg{grid-template-columns:1fr 1fr;padding:10px}
+  .due .leg strong{font-size:13px}
   .due .leg div{grid-template-columns:auto minmax(0,1fr)}
   .due .leg .lett{grid-row:auto;height:28px}
   .criteri div{font-size:13.5px}
@@ -538,6 +561,9 @@ mark.syn{background:transparent;color:inherit;border-bottom:3px dashed #3f7cc4}
   <symbol id="i-espandi" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/></symbol>
   <symbol id="i-gruppo" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5M15 14.5c3 0 6 1.5 6 4.5"/></symbol>
   <symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
+  <symbol id="i-esci" viewBox="0 0 24 24"><path d="M14 4h4a2 2 0 012 2v12a2 2 0 01-2 2h-4M10 16l-4-4 4-4M6 12h10"/></symbol>
+  <symbol id="i-condividi" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.3 10.8l7.4-4.3M8.3 13.2l7.4 4.3"/></symbol>
+  <symbol id="i-scudo" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></symbol>
   <symbol id="i-salva" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
 </svg>
 
@@ -550,6 +576,7 @@ mark.syn{background:transparent;color:inherit;border-bottom:3px dashed #3f7cc4}
     </div>
     <div class="top-azioni">
       <span class="salvato" id="salvato" aria-live="polite"></span>
+      <button class="tondo" id="b-esci" aria-label="Esci dal gruppo" hidden></button>
       <button class="tondo" id="b-tut" aria-label="Guida"></button>
       <button class="pill" id="b-leg"></button>
     </div>
@@ -587,6 +614,7 @@ mark.syn{background:transparent;color:inherit;border-bottom:3px dashed #3f7cc4}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 const DATA = /*DATA*/;
+const IMG = /*IMG*/;
 const FONT_R = "/*FONT_R*/", FONT_B = "/*FONT_B*/";
 </script>
 <script>
@@ -694,6 +722,7 @@ function salva(){
   }, 350);
 }
 function mostraSalv(){
+  $("#b-esci").hidden = !S.online;
   if (S.online){
     const t = ONL.ora ? `Salvato online: ${ONL.ora}` : ONL.errore ? "Salvataggio online non riuscito: riprovo" : "Collegamento…";
     $("#salvato").innerHTML = `${ico(ONL.errore ? "x" : "salva")}<span>${esc(S.meta.gruppo ? S.meta.gruppo + " · " : "")}${esc(t)}</span>`;
@@ -1241,23 +1270,35 @@ function rigaFonte2(isIn, extra = ""){
   </div>${extra}`;
 }
 const NOTA_BLOCCO = `<p class="aiuto entra" style="--d:5">Il nome del gruppo e il tutor servono per ritrovare il lavoro: non si possono più cambiare.</p>`;
+/* immagini: incorporate nella pagina (niente caricamenti che falliscono), colorate con la tinta dell'area */
+const TINTE = { fund:["#6f6ad8","#463eb3"], a1:["#46a9bb","#0f6672"], a2:["#55a872","#226b3c"], a3:["#e9a52f","#935700"], tr:["#d9566a","#a1263a"], brand:["#3046b8","#24359a"] };
+(() => {
+  const rgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16) / 255);
+  const f = Object.entries(TINTE).map(([k, [c, deep]]) => { const a = rgb(deep), b = rgb(c).map(v => v * .12 + .88);
+    return `<filter id="duo-${k}" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues="${a[0].toFixed(3)} ${b[0].toFixed(3)}"/><feFuncG type="table" tableValues="${a[1].toFixed(3)} ${b[1].toFixed(3)}"/><feFuncB type="table" tableValues="${a[2].toFixed(3)} ${b[2].toFixed(3)}"/></feComponentTransfer></filter>`; }).join("");
+  document.body.insertAdjacentHTML("beforeend", `<svg width="0" height="0" style="position:absolute" aria-hidden="true">${f}</svg>`);
+})();
+const FOTO_AREA = { fund:"fondamentali", a1:"area1", a2:"area2", a3:"area3", tr:"trasversali" };
+const foto = (nome, tinta, cls = "") => `<img class="foto ${cls}" src="${IMG[nome]}" alt="" decoding="async" style="filter:url(#duo-${tinta})">`;
 const DECOR = `<div class="sfondo" aria-hidden="true"><span class="blob" style="width:380px;height:380px;right:-170px;top:-120px"></span><span class="blob" style="width:260px;height:260px;left:-130px;bottom:-90px;animation-direction:alternate-reverse"></span></div>`;
 const tile = n => `<div class="ph tile" aria-hidden="true">${ico(n)}</div>`;
 function vista(dir){
   const p = passoAtt(); const t = p.t;
   if (t === "copertina") return `<div class="centrata gut">
       <span class="blob" style="width:420px;height:420px;left:-180px;top:-160px"></span><span class="blob" style="width:320px;height:320px;right:-140px;bottom:-120px;animation-direction:alternate-reverse"></span>
-      <div class="ph grande" aria-hidden="true">${ico("img")}</div>
+      <div class="ill grande" aria-hidden="true">${foto("copertina", "brand")}</div>
       <h1>${parole(M.titolo)}</h1>
       <p class="entra" style="--d:6">${esc(M.sottotitolo)}</p>
       <div class="azioni entra" style="--d:8"><button class="btn" id="b-via"><span>${haDati() ? "Riprendi" : "Inizia"}</span>${ico("avanti")}</button></div>
+      <button class="link-privacy entra" style="--d:9" data-privacy>${ico("scudo")}<span>Informativa privacy</span></button>
     </div>`;
-  if (t === "accesso") return `${DECOR}<div class="d-in centro gut">${tile("gruppo")}
+  if (t === "accesso") return `${DECOR}<div class="d-in centro gut"><div class="ill media" aria-hidden="true">${foto("gruppo", "brand")}</div>
       <h1 class="domanda-h">${parole("Il lavoro del gruppo")}</h1>
       <div class="accesso entra" style="--d:3">
         <button class="acc-card" id="acc-nuovo"><span class="ph acc-ico">${ico("piu")}</span><strong>Nuovo gruppo</strong><small>Iniziate il lavoro e scegliete una password.</small></button>
         <button class="acc-card" id="acc-entra"><span class="ph acc-ico">${ico("gruppo")}</span><strong>Entra nel gruppo</strong><small>Il gruppo ha già iniziato: entrate con nome del gruppo, tutor e password.</small></button>
       </div>
+      <button class="link-privacy entra" style="--d:5;align-self:flex-start" data-privacy>${ico("scudo")}<span>Informativa privacy</span></button>
     </div>`;
   if (t === "entra") return `${DECOR}<div class="d-in centro gut">${tile("gruppo")}
       <h1 class="domanda-h">${parole("Entra nel gruppo")}</h1>
@@ -1269,11 +1310,12 @@ function vista(dir){
         <button class="btn" type="submit" id="b-entra"><span>Entra</span>${ico("avanti")}</button>
       </form>
     </div>`;
-  if (t === "g-pass") return `${DECOR}<div class="d-in centro gut">${tile("gruppo")}
+  if (t === "g-pass") return `${DECOR}<div class="d-in centro gut"><div class="ill media" aria-hidden="true">${foto("gruppo", "brand")}</div>
       <h1 class="domanda-h">${parole("Scegliete una password per il gruppo")}</h1>
       <p class="aiuto entra" style="--d:3">Con il nome del gruppo, il tutor e questa password ogni componente del gruppo può riaprire il lavoro da qualsiasi computer o telefono. Almeno 4 caratteri.</p>
       <input class="campo entra" style="--d:4" id="f-pass" data-m="__pass" value="" autocomplete="off" aria-label="Password">
       <p class="errore" id="err" hidden></p>
+      <button class="link-privacy entra" style="--d:5;align-self:flex-start" data-privacy>${ico("scudo")}<span>Informativa privacy</span></button>
     </div>`;
   if (t === "g-nome"){
     const nomi = Array.from({ length:12 }, (_, i) => "Gruppo " + (i + 1)), blocco = !!S.online;
@@ -1304,7 +1346,7 @@ function vista(dir){
   if (t === "g-tutor") return campoSemplice("tutor", M.tutor, "", "text", "gruppo");
   if (t === "g-data") return campoSemplice("data", M.data, "", "date", "cal");
   if (t === "consegna") return `${DECOR}<div class="d-in centro gut" style="max-width:1000px">
-      <div class="due"><div>${tile("leg")}
+      <div class="due"><div><div class="ill media sx" aria-hidden="true">${foto("consegna", "brand")}</div>
         <h1 class="domanda-h">${parole(M.consegnaH)}</h1>
         <p class="entra consegna-t" style="--d:2;font-size:17.5px">${esc(M.consegna[0])}<strong>${esc(M.consegna[1])}</strong>${esc(M.consegna[2])}</p>
         <div class="box metodo entra" style="--d:5"><strong>${M.metodoH}</strong> ${esc(M.metodo)}</div></div>
@@ -1349,7 +1391,7 @@ function vista(dir){
     const fatti = cc.reduce((n, c) => n + ["in_corr", "in_evid", "ccnl_corr", "ccnl_evid", "mot"].filter(k => pieno(S.c[c.n][k])).length, 0);
     return `<div class="centrata gut scuoti">
       <span class="blob" style="width:420px;height:420px;left:-180px;top:-160px"></span>
-      <div class="fine-ill" aria-hidden="true"><div class="ph">${ico("img")}</div><div class="timbro">${timbroSvg(cc.length > 1 ? `C${cc[0].n}–${cc[cc.length - 1].n}` : `C${cc[0].n}`)}</div></div>
+      <div class="fine-ill" aria-hidden="true"><div class="ill">${foto(FOTO_AREA[p.a], p.a)}</div><div class="timbro">${timbroSvg(cc.length > 1 ? `C${cc[0].n}–${cc[cc.length - 1].n}` : `C${cc[0].n}`)}</div></div>
       <h1>${parole(a.nome)}</h1>
       <p class="conta entra" style="--d:6">${fatti} / ${tot}</p>
       ${raccolta(S.timbri[p.a] ? null : p.a)}
@@ -1370,6 +1412,7 @@ function vista(dir){
       <div class="sx"><div class="timbro">${timbroSvg("13")}</div><h1>${parole(M.titolo)}</h1>${raccolta()}</div>
       <div class="dx">
         <button class="btn entra" style="--d:6" id="b-pdf">${ico("pdf")}<span>${M.pdf}</span></button>
+        ${puoCondividere() ? `<button class="btn chiaro entra" style="--d:6" id="b-cond">${ico("condividi")}<span>Condividi il PDF</span></button>` : ""}
         <button class="btn pericolo entra" style="--d:7" id="b-azz">${ico("cestino")}<span>${M.azzera}</span></button>
         <p class="entra" style="--d:8;font-size:12.5px;color:var(--soft)"><strong>${M.notaH}</strong> ${esc(M.nota)}</p>
       </div>
@@ -1590,6 +1633,7 @@ function collega(){
   });
   $$("#d-corpo [data-chk]").forEach(b => b.onclick = () => { const k = b.dataset.chk; S.chk[k] = !S.chk[k]; b.setAttribute("aria-checked", S.chk[k]); salva(); });
   $("#b-pdf") && ($("#b-pdf").onclick = generaPDF);
+  $("#b-cond") && ($("#b-cond").onclick = condividiPDF);
   $("#b-azz") && ($("#b-azz").onclick = chiediAzzera);
 }
 
@@ -1693,6 +1737,59 @@ function guida(){
     }, g.testi && (telefono() || S.ridotto) ? 520 : 120);
   };
   mostra();
+}
+const PRIVACY = `<div class="priv">
+  <p>Come trattiamo i dati che inserite nella scheda <strong>Confronto critico sulle competenze della professionalità docente</strong>, ai sensi dell’articolo 13 del Regolamento europeo 2016/679 (GDPR).</p>
+  <div class="breve"><strong>In breve</strong><ul>
+    <li>Il lavoro del gruppo si salva online e lo ritrovate su qualsiasi dispositivo con nome del gruppo, tutor e password.</li>
+    <li>Usiamo i dati solo per farvi compilare, salvare e scaricare la scheda. Niente pubblicità, niente statistiche, niente vendita a terzi.</li>
+    <li>Potete cancellare il lavoro online quando volete: pulsante <strong>Esci</strong> in alto, poi <strong>Elimina il lavoro del gruppo online</strong>.</li></ul></div>
+  <h3>1. Chi è il titolare</h3>
+  <p>Il titolare del trattamento è <strong>Lorenzo Sciallato</strong>, che ha realizzato questa scheda come progetto personale. Per qualsiasi domanda o richiesta scrivete a <strong>lorenzo.sciallato@gmail.com</strong>. La scheda non è un servizio ufficiale dell’Università degli Studi di Macerata.</p>
+  <h3>2. Quali dati trattiamo</h3>
+  <ul><li>Nome del gruppo, tutor, corso e data.</li>
+    <li>Cognome, nome e matricola dei componenti, se li inserite.</li>
+    <li>Le risposte: tipi di corrispondenza, evidenze testuali, motivazioni, articoli del CCNL e sintesi.</li>
+    <li>La password del gruppo, che non viene mai salvata così com’è: online resta solo un’impronta da cui non si può ricavare la password.</li>
+    <li>Dati tecnici di connessione (per esempio l’indirizzo IP), che i fornitori indicati al punto 5 trattano per far funzionare il sito e proteggerlo.</li></ul>
+  <h3>3. Perché li trattiamo</h3>
+  <p>Solo per permettervi di compilare la scheda insieme, salvarla, ritrovarla e generare il PDF. La base giuridica è l’erogazione del servizio che avete richiesto (articolo 6, paragrafo 1, lettera b del GDPR). Non usiamo i dati per pubblicità, profilazione o statistiche e non li cediamo a nessuno.</p>
+  <h3>4. Come funziona l’accesso</h3>
+  <p>Per riaprire il lavoro servono nome del gruppo, tutor e password. Nello spazio dati online nome del gruppo e tutor non sono scritti in chiaro, ma trasformati in un codice che non si può ricondurre a loro senza una chiave segreta. Chi conosce i tre dati può aprire il lavoro del gruppo: condivideteli solo con i componenti. Su questo dispositivo la password resta memorizzata nel browser finché non uscite dal gruppo: scegliete una password usata solo qui e uscite quando lavorate su un computer condiviso.</p>
+  <h3>5. Dove sono conservati</h3>
+  <p>Il lavoro salvato online si trova sul servizio <strong>Cloudflare R2</strong> di Cloudflare, Inc., che lo tratta per nostro conto. L’archivio è collocato in Europa occidentale. Cloudflare aderisce all’EU-U.S. Data Privacy Framework e applica le clausole contrattuali standard della Commissione europea. Il sito è pubblicato tramite <strong>GitHub Pages</strong> di GitHub, Inc., che riceve i dati tecnici di connessione necessari a mostrarvi le pagine. Sul dispositivo la scheda tiene una copia del lavoro nella memoria del browser. Non usiamo cookie. I dati viaggiano sempre su connessione cifrata (HTTPS).</p>
+  <h3>6. Per quanto tempo</h3>
+  <p>Il lavoro resta salvato finché non lo eliminate o non chiedete di eliminarlo. I lavori non modificati da più di 12 mesi possono essere cancellati. La copia sul dispositivo resta finché non uscite dal gruppo o non cancellate i dati del browser.</p>
+  <h3>7. I vostri diritti</h3>
+  <p>Potete chiedere in ogni momento di accedere ai dati, correggerli, cancellarli, limitarne il trattamento, opporvi o riceverli in un formato leggibile (articoli 15–22 del GDPR). Molte di queste cose potete farle direttamente dalla scheda: modificate i testi quando volete, scaricate il PDF ed eliminate il lavoro online. Per il resto scrivete a <strong>lorenzo.sciallato@gmail.com</strong>. Se ritenete che i dati siano trattati in modo non corretto, potete presentare reclamo al <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a>.</p>
+  <h3>8. Modifiche</h3>
+  <p>Se questa informativa cambia, la versione aggiornata sarà pubblicata qui con la nuova data. Ultimo aggiornamento: 1 novembre 2026.</p>
+</div>`;
+function privacy(){
+  velo(`<div class="foglio largo"><div class="foglio-t gut"><h2>Informativa privacy</h2><button class="tondo" data-chiudi aria-label="Chiudi">${ico("x")}</button></div><div class="foglio-c gut" style="display:block">${PRIVACY}</div></div>`);
+}
+document.addEventListener("click", e => { if (e.target.closest("[data-privacy]")) privacy(); });
+$("#b-esci").innerHTML = ico("esci");
+$("#b-esci").onclick = () => {
+  const { v, chiudi } = velo(`<div class="dialogo"><p>Vuoi uscire dal gruppo su questo dispositivo?</p>
+    <small>Il lavoro resta salvato online: per rientrare servono nome del gruppo, tutor e password.</small>
+    <div class="az"><button class="btn chiaro" data-chiudi aria-label="Annulla">${ico("x")}</button><button class="btn" id="ok-esci">${ico("esci")}<span>Esci</span></button></div>
+    <button class="elimina-link" id="b-elimina">Elimina il lavoro del gruppo online</button></div>`, true);
+  $("#ok-esci", v).onclick = async () => { $("#ok-esci", v).disabled = true; try { await sync(); } catch(e){} esci(); chiudi(); };
+  $("#b-elimina", v).onclick = () => {
+    $(".dialogo", v).innerHTML = `<p>Eliminare il lavoro del gruppo online?</p><small>Viene cancellato per tutti i componenti e non si può recuperare. Prima scaricate il PDF se vi serve.</small>
+      <p class="errore" id="err" hidden></p>
+      <div class="az"><button class="btn chiaro" data-chiudi aria-label="Annulla">${ico("x")}</button><button class="btn pericolo" id="ok-elimina">${ico("cestino")}<span>Elimina</span></button></div>`;
+    $$("[data-chiudi]", v).forEach(b => b.onclick = chiudi);
+    $("#ok-elimina", v).onclick = async () => {
+      try { const r = await chiama("elimina", S.online); if (!r.ok) throw 0; esci(); chiudi(); }
+      catch(e){ errore(RETE); }
+    };
+  };
+};
+function esci(){
+  try { localStorage.removeItem(KEY); localStorage.removeItem(KEY + "_base"); } catch(e){}
+  S = vuoto(); S.guida = true; ONL.base = null; ONL.ora = ""; oraSalv = ""; mostraSalv(); vai(0, 0);
 }
 function chiediAzzera(){
   const { v, chiudi } = velo(`<div class="dialogo"><p>${esc(M.azzeraDomanda)}</p><div class="az"><button class="btn chiaro" data-chiudi aria-label="Annulla">${ico("x")}</button><button class="btn pericolo" id="ok-azz">${ico("cestino")}<span>${M.azzera}</span></button></div></div>`, true);
@@ -1804,11 +1901,23 @@ function costruisciPDF(){
   testo(M.notaH + " " + M.nota, { size:8.5, color:[75,85,99] });
   return d;
 }
+const nomePDF = () => "Confronto competenze" + (S.meta.gruppo ? " - " + S.meta.gruppo.replace(/[\\/:*?"<>|]/g, "") : "") + ".pdf";
+function puoCondividere(){
+  try { return !!(navigator.canShare && navigator.canShare({ files:[new File(["x"], "prova.pdf", { type:"application/pdf" })] })); } catch(e){ return false; }
+}
+async function condividiPDF(){
+  const b = $("#b-cond"); b.disabled = true;
+  try {
+    const file = new File([costruisciPDF().output("blob")], nomePDF(), { type:"application/pdf" });
+    await navigator.share({ files:[file], title:M.titolo });
+  } catch(e){ /* annullato dall'utente */ }
+  finally { b.disabled = false; }
+}
 async function generaPDF(){
   const b = $("#b-pdf"); b.disabled = true;
   try {
     const d = costruisciPDF();
-    const nome = "Confronto competenze" + (S.meta.gruppo ? " - " + S.meta.gruppo.replace(/[\\/:*?"<>|]/g, "") : "") + ".pdf";
+    const nome = nomePDF();
     const blob = d.output("blob");
     const dl = window.claude && window.claude.use ? await window.claude.use("downloads").catch(() => null) : null;
     if (dl){ try { await dl.save({ filename:nome, data:blob }); } catch(e){} }
