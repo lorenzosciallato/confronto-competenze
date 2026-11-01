@@ -1,0 +1,10 @@
+# Configurazione per pubblicare il Worker su Cloudflare (npx wrangler@4 deploy).
+# La frase segreta PEPE NON sta qui: è salvata su Cloudflare come "Secret".
+name = "confronto-competenze"
+main = "worker.js"
+compatibility_date = "2025-09-01"
+workers_dev = true
+
+[[r2_buckets]]
+binding = "DATI"
+bucket_name = "confronto-competenze"
